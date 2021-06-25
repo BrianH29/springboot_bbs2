@@ -2,5 +2,7 @@
 ###### springboot + mysql + mybatis
 
 - [ ] project setup
-- [ ] db connection setup
+- [x] mysql connection setup test
 - [ ] mybatis setup 
+
+[reference](https://gunlog.dev/springboot-mybatis#__4)
