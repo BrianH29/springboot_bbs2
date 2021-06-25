@@ -2,6 +2,7 @@ package com.bh.bbs2.db;
 
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,6 +23,16 @@ public class ConnectionTests {
     public void Connection_test(){
         try(Connection con = sqlSessionFactory.openSession().getConnection()){
             System.out.println("Connection success");
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void mapper_test(){
+        try(SqlSession sqlSession = sqlSessionFactory.openSession()){
+            String sysdate = sqlSession.selectOne("test.selectTest");
+            System.out.println(sysdate);
         }catch(Exception e){
             e.printStackTrace();
         }
